@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var config = {
-    dbURI: 'mongodb+srv://james:puppy000@cluster0-gj9eo.mongodb.net/test?retryWrites=true&w=majority'
+    dbURI: 'mongodb+srv://<user>:<password>cluster0-gj9eo.mongodb.net/test?retryWrites=true&w=majority'
 };
 exports.default = config;
 //# sourceMappingURL=default.js.map

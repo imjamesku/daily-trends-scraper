@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import DailyTrend from './models/dailyTrend'
 import moment from 'moment'
 import connectDB from './db'
+import cron from 'node-cron'
 
 type dailyTrend = {
     date: Date;
@@ -90,6 +91,7 @@ const saveDailyTrends = async (dailyTrends: Array<dailyTrend>) => {
 
 const main = async () => {
     try {
+        console.log('Updating DB')
         const geoCodes = ['AR', 'AU', 'AT', 'BE', 'BR', 'CA', 'CL', 'FI', 'TW', 'US', 'FR', 'HK', 'IN', 'ID', 'GB', 'RU']
         await connectDB()
         for (const geo of geoCodes) {
@@ -106,8 +108,8 @@ const main = async () => {
         console.log('connection error')
     }
 }
-
-main()
+cron.schedule("0 * * * *", main)
+// main()
 
 
 
