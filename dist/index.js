@@ -53,6 +53,7 @@ var mongoose_1 = __importDefault(require("mongoose"));
 var dailyTrend_1 = __importDefault(require("./models/dailyTrend"));
 var moment_1 = __importDefault(require("moment"));
 var db_1 = __importDefault(require("./db"));
+var node_cron_1 = __importDefault(require("node-cron"));
 var fakeDailyTrend = {
     date: new Date(Date.now()),
     trendingSearches: ['JamesKu', 'game', 'web dev'],
@@ -142,6 +143,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 7, , 8]);
+                console.log('Updating DB');
                 geoCodes = ['AR', 'AU', 'AT', 'BE', 'BR', 'CA', 'CL', 'FI', 'TW', 'US', 'FR', 'HK', 'IN', 'ID', 'GB', 'RU'];
                 return [4 /*yield*/, db_1.default()];
             case 1:
@@ -175,6 +177,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
         }
     });
 }); };
-main();
+node_cron_1.default.schedule("0 * * * *", main);
+// main()
 // getTrends()
 //# sourceMappingURL=index.js.map
