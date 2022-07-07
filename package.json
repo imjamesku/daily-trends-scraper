@@ -16,7 +16,7 @@
     "@types/node-cron": "^2.0.3",
     "axios": "^0.19.2",
     "google-trends-api": "^4.9.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.7",
     "node-cron": "^2.0.3"
   },
